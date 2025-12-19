@@ -1,16 +1,152 @@
 \documentclass[11pt, a4paper]{article}
 \usepackage[margin=1.5cm]{geometry}
-\usepackage{aru_style}
+\usepackage{aru_style} % Asegúrate de que este archivo esté en la misma carpeta
+
+\usepackage{graphicx}
+\usepackage{float}
 
 \addbibresource{repbib.bib}
+
 \begin{document}
 \input{portada}
-\input{introduccion}
-\input{guia_uso}
-\input{errores_advertencias}
 
+\section{Descripción del sitio web}
+El sistema \textit{aru:taskmanager} es una plataforma de gestión de tareas diseñada para optimizar la organización personal y profesional. A continuación, se detallan los componentes de su interfaz y las funcionalidades principales que permiten al usuario interactuar con el sistema de manera eficiente.
 
-%%%%%%%%%% BIBLIOGRAFÍA %%%%%%%%%%%%%%%%%%%%%
+\section{Interfaz de navegación inicial}
+
+La interfaz inicial permite al usuario explorar las opciones básicas de acceso antes de entrar en su entorno personal de trabajo.
+
+\subsection{Header sin autenticación}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pantalla/header_sin_autenticar.png}
+    \caption{Encabezado principal del sitio web visible para usuarios no autenticados}
+    \label{fig:header-sin-autenticacion}
+\end{figure}
+
+Como se observa en la Figura~\ref{fig:header-sin-autenticacion}, el encabezado es persistente y facilita el acceso a las funciones esenciales:
+
+\begin{itemize}
+    \item \textbf{Logotipo y nombre del sistema}: Identifica la aplicación \textit{aru:taskmanager}. Funciona como un acceso directo para regresar a la página de aterrizaje (\textit{landing page}).
+    \item \textbf{Botón de cambio de tema}: Representado por un ícono de luna, permite alternar entre el modo claro y el modo oscuro para mejorar la comodidad visual.
+    \item \textbf{Botón ``Iniciar Sesión''}: Redirige a los usuarios existentes a la pantalla de validación de credenciales.
+    \item \textbf{Botón ``Registrarse''}: Dirigido a nuevos usuarios para la creación de una cuenta mediante un formulario dedicado.
+\end{itemize}
+
+\section{Acceso y autenticación}
+
+El sistema ofrece un proceso de autenticación flexible, permitiendo tanto el registro manual como la integración con proveedores externos.
+
+\subsection{Registro de usuario}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pantalla/registrar.png}
+    \caption{Formulario de registro para la creación de una nueva cuenta}
+    \label{fig:registro}
+\end{figure}
+
+La pantalla de registro (Figura~\ref{fig:registro}) presenta dos métodos principales:
+
+\begin{itemize}
+    \item \textbf{Servicios externos}: Botones de acceso rápido para \textbf{Discord, Facebook y Google}, que automatizan el proceso mediante la autorización de perfiles existentes.
+    \item \textbf{Registro manual}: Campos para ingresar nombre, apellido, correo electrónico y contraseña.
+    \item \textbf{Botón ``Continue''}: Valida y procesa la creación de la cuenta con los datos proporcionados.
+\end{itemize}
+
+\subsection{Inicio de sesión}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pantalla/iniciar_sesion.png}
+    \caption{Pantalla de inicio de sesión para usuarios registrados}
+    \label{fig:inicio-sesion}
+\end{figure}
+
+Para acceder a una cuenta existente (Figura~\ref{fig:inicio-sesion}), el usuario cuenta con opciones análogas al registro, permitiendo la entrada mediante SSO (\textit{Single Sign-On}) con Google, Discord o Facebook, o mediante el ingreso del correo electrónico y contraseña registrados manualmente.
+
+\section{Interfaz de usuario autenticado}
+
+Una vez iniciada la sesión, la interfaz se adapta para ofrecer herramientas de gestión directa y personalización.
+
+\subsection{Header con sesión activa}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pantalla/header.png}
+    \caption{Encabezado del sitio web en modo autenticado}
+    \label{fig:header-autenticado}
+\end{figure}
+
+El encabezado cambia para priorizar la gestión de la cuenta del usuario:
+\begin{itemize}
+    \item \textbf{Menú de usuario}: Ubicado a la derecha, muestra el nombre e imagen de perfil. Al activarse, despliega opciones para la configuración del perfil y cierre de sesión.
+    \item \textbf{Persistencia}: El botón de cambio de tema y el logotipo mantienen su funcionalidad de navegación y personalización.
+\end{itemize}
+
+\section{Vistas principales de gestión}
+
+\subsection{Vista de calendario}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pantalla/calendar.png}
+    \caption{Organización de tareas en formato de calendario mensual}
+    \label{fig:vista-calendario}
+\end{figure}
+
+La vista de calendario (Figura~\ref{fig:vista-calendario}) es la herramienta central para la planificación temporal. Sus funciones incluyen:
+\begin{itemize}
+    \item \textbf{Controles de navegación}: Selector de mes y año para desplazarse cronológicamente.
+    \item \textbf{Interactividad}: Selección de días específicos para la creación rápida de tareas y visualización de tarjetas de actividades programadas.
+    \item \textbf{Alternador de visualización}: Permite cambiar instantáneamente a la vista de lista.
+\end{itemize}
+
+\subsection{Vista de lista}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{pantalla/lista.png}
+    \caption{Gestión detallada de tareas agrupadas por categorías}
+    \label{fig:vista-lista}
+\end{figure}
+
+Esta vista (Figura~\ref{fig:vista-lista}) facilita el trabajo estructurado mediante:
+\begin{itemize}
+    \item \textbf{Panel lateral de filtrado}: Permite buscar tareas por palabras clave o filtrar por categorías específicas.
+    \item \textbf{Organización por secciones}: Las tareas se agrupan en categorías personalizables, mostrando el volumen de actividades en cada una.
+    \item \textbf{Acceso rápido}: Botón para añadir nuevas secciones o categorías de forma inmediata.
+\end{itemize}
+
+\section{Módulos de interacción (Modales)}
+
+Los modales permiten realizar acciones específicas sin abandonar la vista principal, manteniendo el flujo de trabajo del usuario.
+
+\subsection{Gestión de tareas (Creación y Edición)}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pantalla/añadir_tarea.png}
+    \hfill
+    \includegraphics[width=0.8\linewidth]{pantalla/edicion_tarea.png}
+    \caption{Modales para la creación y edición de tareas}
+    \label{fig:modales-tareas}
+\end{figure}
+
+El sistema diferencia entre la creación simple y la edición avanzada:
+\begin{itemize}
+    \item \textbf{Creación}: Enfocada en la captura rápida de datos (título, categoría, descripción y plazos).
+    \item \textbf{Edición y Asistencia}: Además de modificar los datos básicos, incluye herramientas de \textbf{Inteligencia Artificial} para generar recomendaciones y opciones críticas como la eliminación definitiva del registro.
+\end{itemize}
+
+\subsection{Personalización de categorías}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pantalla/añadir_categoria.png}
+    \caption{Ventana modal para la gestión de categorías y etiquetas}
+    \label{fig:modal-anadir-categoria}
+\end{figure}
+
+Como se detalla en la Figura~\ref{fig:modal-anadir-categoria}, el usuario puede definir su propio sistema de organización mediante nombres personalizados y una paleta de colores que facilita la identificación visual de las tareas en todas las vistas del sistema.
+
+\section{Soporte}
+El sistema cuenta con una sección dedicada para resolver dudas técnicas y proporcionar asistencia al usuario sobre las funcionalidades descritas anteriormente.
+
 \pagebreak
 \printbibliography[heading=bibintoc]
 
