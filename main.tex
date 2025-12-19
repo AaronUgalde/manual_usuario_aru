@@ -144,8 +144,78 @@ El sistema diferencia entre la creación simple y la edición avanzada:
 
 Como se detalla en la Figura~\ref{fig:modal-anadir-categoria}, el usuario puede definir su propio sistema de organización mediante nombres personalizados y una paleta de colores que facilita la identificación visual de las tareas en todas las vistas del sistema.
 
-\section{Soporte}
-El sistema cuenta con una sección dedicada para resolver dudas técnicas y proporcionar asistencia al usuario sobre las funcionalidades descritas anteriormente.
+\section{Resolución de problemas comunes}
+
+En esta sección se describen los errores más frecuentes que el usuario podría encontrar y los pasos recomendados para su solución inmediata.
+
+\subsection{Problemas de acceso y autenticación}
+\begin{itemize}
+    \item \textbf{Error: ``Credenciales inválidas''}: 
+    \begin{itemize}
+        \item \textit{Causa}: El correo electrónico o la contraseña no coinciden con los registros.
+        \item \textit{Solución}: Verifique que el bloqueo de mayúsculas esté desactivado. Si olvidó su contraseña, utilice el enlace de recuperación en la pantalla de inicio de sesión.
+    \end{itemize}
+    \item \textbf{Fallo en el inicio de sesión con servicios externos (Google/Discord)}:
+    \begin{itemize}
+        \item \textit{Causa}: El navegador bloqueó la ventana emergente (\textit{pop-up}) o la sesión en el servicio externo expiró.
+        \item \textit{Solución}: Permita las ventanas emergentes para \textit{aru:taskmanager} en la configuración de su navegador e intente de nuevo.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Gestión de tareas y categorías}
+\begin{itemize}
+    \item \textbf{El botón ``Guardar'' no se activa}:
+    \begin{itemize}
+        \item \textit{Causa}: Faltan campos obligatorios en el formulario (Título o Categoría).
+        \item \textit{Solución}: Asegúrese de que todos los campos marcados con asterisco estén completos.
+    \end{itemize}
+    \item \textbf{No se visualizan tareas en el calendario}:
+    \begin{itemize}
+        \item \textit{Causa}: El selector de fecha está en un mes diferente o existen filtros activos en la vista de lista.
+        \item \textit{Solución}: Compruebe el mes/año seleccionado en la parte superior y limpie los filtros en el panel lateral de la vista de lista.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Asistencia por IA y errores de sistema}
+\begin{itemize}
+    \item \textbf{La IA no genera recomendaciones}:
+    \begin{itemize}
+        \item \textit{Causa}: Interrupción en la conexión con el servidor de IA o descripción de la tarea demasiado breve.
+        \item \textit{Solución}: Proporcione una descripción más detallada de la tarea y asegúrese de tener una conexión a internet estable.
+    \end{itemize}
+    \item \textbf{La interfaz no cambia al modo oscuro/claro}:
+    \begin{itemize}
+        \item \textit{Causa}: Error en la caché del navegador o en el almacenamiento local (\textit{Local Storage}).
+        \item \textit{Solución}: Recargue la página (\textit{F5}) o limpie los datos de navegación del sitio.
+    \end{itemize}
+\end{itemize}
+
+
+\section{Requerimientos del Sistema y Compatibilidad}
+
+Para garantizar un rendimiento fluido y el correcto funcionamiento de las herramientas de Inteligencia Artificial de \textit{aru:taskmanager}, se recomienda cumplir con los siguientes estándares técnicos.
+
+\subsection{Navegadores soportados}
+El sistema utiliza tecnologías web de última generación (HTML5, CSS3 y ES2025), por lo que es compatible con las versiones más recientes de los principales navegadores:
+\begin{itemize}
+    \item \textbf{Google Chrome}: Versión 140 o superior.
+    \item \textbf{Mozilla Firefox}: Versión 140 o superior.
+    \item \textbf{Microsoft Edge}: Versión 140 o superior.
+    \item \textbf{Safari}: Versión 18 o superior (macOS e iOS).
+\end{itemize}
+
+\subsection{Hardware y resolución de pantalla}
+\begin{itemize}
+    \item \textbf{Resolución mínima}: $1024 \times 768$ píxeles (optimizado para tablets y portátiles pequeños).
+    \item \textbf{Resolución recomendada}: $1920 \times 1080$ píxeles para una experiencia completa en la vista de calendario.
+    \item \textbf{Memoria RAM}: Se sugiere un mínimo de 4GB de RAM para mantener la fluidez al gestionar múltiples categorías y procesos de IA.
+\end{itemize}
+
+\subsection{Conectividad}
+\begin{itemize}
+    \item \textbf{Acceso a Internet}: Requerido para la autenticación mediante servicios externos (Google, Facebook, Discord) y para la sincronización de tareas en la nube.
+    \item \textbf{Uso de IA}: Las funciones de asistencia y recomendaciones automáticas dependen de una conexión estable para comunicarse con el servidor de procesamiento de lenguaje natural.
+\end{itemize}
 
 \pagebreak
 \printbibliography[heading=bibintoc]
